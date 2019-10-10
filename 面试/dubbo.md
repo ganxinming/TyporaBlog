@@ -41,7 +41,22 @@
 
   其实 PB 之所以性能如此好，主要得益于两个：**第一**，它使用 proto 编译器，自动进行序列化和反序列化，速度非常快，应该比 `XML` 和 `JSON` 快上了 `20~100` 倍；**第二**，它的数据压缩效果好，就是说它序列化后的数据量体积小。因为体积小，传输起来带宽和速度上会有优化。
 
+Hessian 的对象序列化机制有 8 种原始类型：
 
+- 原始二进制数据
+- boolean
+- 64-bit date（64 位毫秒值的日期）
+- 64-bit double
+- 32-bit int
+- 64-bit long
+- null
+- UTF-8 编码的 string
+
+另外还包括 3 种递归类型：
+
+- list for lists and arrays
+- map for maps and dictionaries
+- object for objects
 
 ### dubbo服务治理：(居然没有熔断,可能没有完善)
 
