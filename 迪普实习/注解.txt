@@ -1,0 +1,22 @@
+1.@Data:使用了lombok插件，完成了类的get，set，toString，hashCode等方法。
+  @Data相当于@Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode这5个注解的合集。
+  @Slf4j:也是lombok插件注释，相当于完成private  final Logger log=LoggerFactory.getLogger(this.getclass();
+2.@Configuration :作为配置文件，相当于<Beans>，里面可以配置@Bean(相当于bean)
+3.@ConfigurationProperties:相当于作为properties的文件的，实体类的一种形式。但是只是相当于定义
+并没有初始化,可以配合下面初始化。
+4.@EnableConfigurationProperties(“a.class”)，使得a配置类初始化成bean。即使上面注解生效。
+5.@PostConstruct:由JSR-250提供，在构造函数执行完之后执行，等价于xml配置文件中bean的initMethod
+@PreDestory 由JSR-250提供，在Bean销毁之前执行，等价于xml配置文件中bean的destroyMethod
+6.@SessionAttributes:相当于如果在Controller中，有进行model.addAttribute,则自动将值封装到session中。
+7.@Transaction:给service配置事物，默认隔离级别(default，即数据库的默认隔离级别，提交读)，传播行为是：require。
+8.@suppressWarnings(""):压制警告，里面可以填很多类型,比如“unchecked”，抑制没有进行类型检查操作。
+9.@Primary :在使用@Autowired时，只能按类型装配，当有两个子类型，但是是按父类型装配，这时spring容器不知道
+装配哪个，如果使用了@Primary，则优先装配该子类型。当然@Autowired和@Qualifier，按名称注入也能解决问题。
+10.@getMapping(),@PostMapping(),就是requestMapping和get，post的两种形式。
+11.@RequestParam()配置Controller层接收参数，可以配置不同参数名，且可以配置是否必要的，有些参数是必要的则需配置true。(参数级别注解)
+12.@PropertySource(读取自定义配置文件，主要是一些参数的配置，搭配@value使用)和@ConfigurationProperties(默认读取application文件，配置前缀，无需@value,默认根据属性名进行注入)区别。
+
+13.@Mapper和@Repository区别:两者都是在dao层，但是@repository和@Commpent作用一样就是注入个bean，@Repository主要就是用于springData jpa等java代码的dao层。
+@Mapper:就是mybatis的注解，标注这个接口是mapper(直接使用mapper，需要在application中配置mapper.xml的位置)
+
+14.@EqualsAndHashcode:lombok的注解，用于重写equeals和hashcode方法。@EqualsAndHashCode(callSuper=true)当给子类加注解时，最好是true，如果是false，调用比较对象时，只会比较子类的属性值，此时如果还用到了父类，那就糟糕了。他不会比较父类，所以要加上true

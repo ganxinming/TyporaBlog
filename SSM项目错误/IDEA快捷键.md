@@ -17,3 +17,5 @@
 7.ctrl+alt+v, new一个类时快速补齐左边的类型(超好用).
 
 8.Tab   使用提示时，比如new一个类new List(),发现错了，应该用Arraylist(),我还要删除 List()，很麻烦，当用Tab替代回车，自动删除后面的List().
+
+9.ctrl+N 全局搜索某个类(包括jar里的类)

@@ -17,3 +17,4 @@ git push -u origin master.(第一次需要-u,以后不需要了)
 #### 5.如果前面不小心初始化了redme文件，则使用下面命令合并。
 
 git pull --rebase origin master,之后push就可以了。
+

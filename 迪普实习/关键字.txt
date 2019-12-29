@@ -1,0 +1,4 @@
+1.private static final long serialVersionUID=1L;(默认值),serialVersionUID=xxxxxxL(根据整个类，方法生成64位哈希码)
+当实现Serializable接口后，会自动提示生成。(非必须)
+作用：当类序列化时，会将serialVersionUID序列化进去。当反序列化时，会将它于当前类serialVersionUID进行对比
+如果一样，则说明版本相同。（每次更改类或新版本时，都要生成一个新的serialVersionUID）

@@ -1,0 +1,10 @@
+export http_proxy=socks5://10.121.12.54:1081
+apt-get update     ##更新
+
+apt-get install mysql-client mysql-server mysql-common          ## 安装mysql
+env         ##查看环境变量
+
+ps -ef |grep mysql ##查看进程
+
+history  ##查看历史命令
+find / -name my.cnf   ##查找/目录下的my.cnf文件。
