@@ -360,3 +360,17 @@ sql执行顺序:
 11、 TOP：从 VC10 的开始处选择指定数量或比例的行，生成表 TV11，并返回给调用者。
 
 (on和where区别，on是表连接条件。where就是最后结果的筛选)
+
+
+
+#### 今天在使用Navicat for mysql设计表时，在设置外键的时候，删除时和更新时两列有四个值可以选择：CASCADE、NO ACTION、RESTRICT、SET NULL，自己全亲自试了一遍，它们的区别如下：
+
+##### (主表:其中存在主键(primary key)用于与其它表相关联，并且作为在主表中的唯一性标识)
+
+##### (从表：以主表的主键(primary key)值为外键 (Foreign Key)的表，可以通过外键与主表进行关联查询)
+
+CASCADE：父表delete、update的时候，子表会delete、update掉关联记录;(所以当删除主表时，从表也删除)
+SET NULL：父表delete、update的时候，子表会将关联记录的外键字段所在列设为null，所以注意在设计子表时外键不能设为not null；
+RESTRICT：如果想要删除父表的记录时，而在子表中有关联该父表的记录，则不允许删除父表中的记录；
+NO ACTION：同 RESTRICT，也是首先先检查外键；
+

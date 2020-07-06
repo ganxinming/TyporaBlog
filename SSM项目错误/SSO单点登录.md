@@ -8,7 +8,7 @@ SSO单点登录：
 
 2.登录成功后生成token。	把用户信息保存到redis。Key就是token，value就是TbUser对象转换成json。
 
-3、使用String类型保存Session信息。可以使用“前缀:token”为key。
+3、使用String类型保存Session信息。可以使用“前缀:token”为key。(session共享，使用redis完成构成session池)
 
 4.设置key的过期时间。模拟Session的过期时间。一般半个小时。
 
@@ -18,7 +18,9 @@ SSO单点登录：
 
 7、Cookie的有效期。关闭浏览器失效。
 
+(优点:使用token解决了以前使用sessionId作为值的安全问题。
 
+但是现在都用jwt生成的token，安全性高，加密算法基本破解不了。但是结构就变了，以前是拿token访直接问redis拿到user，现在直接解密token就可以拿到userId，然后再去redis取数据，中间多了个人解密的过程)
 
 ### 2.退出登录
 
